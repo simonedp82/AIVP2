@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9663bff68e64df48bb1a4ab92b74199, type: 3}
+  m_Name: Ak47
+  m_EditorClassIdentifier: 
+  bulletModel: {fileID: 7827372090526238261, guid: 52bed86ccfa95f9469af0ce588416f93, type: 3}
+  bulletForce: 30
+  bulletDamage: 50
+  bulletLife: 20
+  bulletHole: {fileID: 2299840137100591488, guid: b8e3211ebdcf6474a9fd6e6913372f97, type: 3}
+  startBulletsNumber: 5

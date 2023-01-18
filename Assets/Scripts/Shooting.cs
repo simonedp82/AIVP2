@@ -35,13 +35,8 @@ public class Shooting : Singleton<Shooting>
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-           
-            if (avaibleBullet[activeWeapon] == 0) return;
-            avaibleBullet[activeWeapon]--;
-            UiManager.Instance.updateBulletNumer(avaibleBullet[activeWeapon]);
-            GameObject newBullet = Instantiate(bulletsType[activeWeapon].bulletModel, muzzle.position, muzzle.rotation);
-            newBullet.GetComponent<BulletLogic>().bulletInfo = bulletsType[activeWeapon];
-            newBullet.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, bulletsType[activeWeapon].bulletForce);
+
+            shootNow();
 
         }
 
@@ -50,6 +45,17 @@ public class Shooting : Singleton<Shooting>
         //    GameObject newBullet = Resources.Load("Bullets/BulletResource") as GameObject;
         //    Instantiate(newBullet);
         //}
+    }
+
+    public void shootNow()
+    {
+        if (avaibleBullet[activeWeapon] == 0) return;
+        avaibleBullet[activeWeapon]--;
+        UiManager.Instance.updateBulletNumer(avaibleBullet[activeWeapon]);
+        UiManager.Instance.spawNotify("Hai sparato");
+        GameObject newBullet = Instantiate(bulletsType[activeWeapon].bulletModel, muzzle.position, muzzle.rotation);
+        newBullet.GetComponent<BulletLogic>().bulletInfo = bulletsType[activeWeapon];
+        newBullet.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, bulletsType[activeWeapon].bulletForce);
     }
 }
 

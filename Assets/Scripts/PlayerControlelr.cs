@@ -18,5 +18,10 @@ public class PlayerControlelr : MonoBehaviour
         float z = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
         transform.Translate(new Vector3(x, 0, z));
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LevelComposition.Instance.loadAdditionalScene(1);
+        }
     }
 }

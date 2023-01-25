@@ -41,8 +41,13 @@ public class ProceduralLevel : MonoBehaviour
         lastBlockzPosition = tileContainer.GetChild(tileContainer.childCount -3).transform.position.z;
         if(zCameraPosition >= lastBlockzPosition)
         {
-            instantiateNewTile(tileContainer.GetChild(tileContainer.childCount - 1).position.z);
+            instantiateNewTile(tileContainer.GetChild(tileContainer.childCount - 1).localPosition.z);
 
+        }
+
+        if(tileContainer.childCount > maxSections)
+        {
+            Destroy(tileContainer.GetChild(0).gameObject);
         }
     }
 
@@ -51,7 +56,7 @@ public class ProceduralLevel : MonoBehaviour
         int sectionIndex = Random.Range(0, sections.Count);
         GameObject go = Instantiate(sections[sectionIndex], tileContainer);
         go.transform.localPosition = new Vector3(0, 0, zPosition + sectionLenght);
-        Destroy(tileContainer.GetChild(0).gameObject);
+        //Destroy(tileContainer.GetChild(0).gameObject);
     }
 
     public void generateObjects()

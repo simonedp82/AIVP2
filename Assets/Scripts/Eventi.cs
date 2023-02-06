@@ -22,6 +22,7 @@ public class Eventi : MonoBehaviour
     void Update()
     {
         
+        
     }
 
     private void OnCollisionEnter(Collision collision)

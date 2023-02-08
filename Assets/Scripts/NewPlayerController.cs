@@ -14,6 +14,8 @@ public class NewPlayerController : MonoBehaviour
     public Vector3 jump;
     public float jumpHeight;
     public float gravity = -9.18f;
+
+    public Animator _anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,10 @@ public class NewPlayerController : MonoBehaviour
             jump.y = 0;
         }
 
+        if(Input.GetKeyDown(KeyCode.S) && characterIsGrounded)
+        {
+            _anim.SetTrigger("Slide");
+        }
         //float rotation = Input.GetAxis("Mouse X");
         //Vector3 rotationVector = new Vector3(0, rotation, 0)* rotationSpeed * Time.deltaTime;
         //transform.Rotate(rotationVector);

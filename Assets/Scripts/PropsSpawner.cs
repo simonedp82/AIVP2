@@ -15,6 +15,7 @@ public class PropsSpawner : MonoBehaviour
             if(isSpawn == 0)
             {
                 GameObject go = Instantiate(ProceduralLevel.Instance.props[Random.Range(0, ProceduralLevel.Instance.props.Count)], t.position, t.rotation);
+                go.transform.SetParent(t);
             }
         }
     }

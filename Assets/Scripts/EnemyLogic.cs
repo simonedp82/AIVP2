@@ -17,4 +17,16 @@ public class EnemyLogic : MonoBehaviour
     {
         transform.Translate(new Vector3(0, 0, speed * -1 * Time.deltaTime), Space.World);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collisione con " + collision.gameObject.name);
+        if (collision.collider.CompareTag("Player"))
+        {
+            Debug.Log("Collisione con player");
+            UiManager.Instance.avaibleLife--;
+            UiManager.Instance.showLifes();
+            Destroy(this.gameObject);
+        }
+    }
 }

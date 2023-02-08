@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
+
 public class UiManager : Singleton<UiManager>
 {
     public TMP_Text bulletNumbers;
@@ -16,11 +17,21 @@ public class UiManager : Singleton<UiManager>
     public GameObject selectedUiObject;
 
     public Dictionary<string, int> myDictionary = new Dictionary<string, int>();
+
+    public int avaibleLife;
+    public TMP_Text lifeText;
     // Start is called before the first frame update
     void Start()
     {
         myDictionary.Add("Primo", 10);
+        showLifes();
 
+    }
+
+    public void showLifes() 
+    {
+        
+        lifeText.text = String.Format("Lives {0}", avaibleLife.ToString());
     }
 
     public void getNewPower(string powerName, int powerAmount)

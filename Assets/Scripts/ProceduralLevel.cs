@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProceduralLevel : MonoBehaviour
+public class ProceduralLevel : Singleton<ProceduralLevel>
 {
     [Header("Procedural")]
     public AnimationCurve curveA;
@@ -24,6 +24,9 @@ public class ProceduralLevel : MonoBehaviour
     public Transform cameraTransform;
     public float zCameraPosition;
     public float lastBlockzPosition;
+
+    [Header("Props")]
+    public List<GameObject> props;
     
     // Start is called before the first frame update
     void Start()
